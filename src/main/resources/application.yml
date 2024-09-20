@@ -78,4 +78,4 @@ springdoc:
 eureka:
   client:
     service-url:
-      defaultZone: https://service-discovery-czf6hyasczdtd0f9.canadacentral-01.azurewebsites.net/
+      defaultZone: https://service-discovery-czf6hyasczdtd0f9.canadacentral-01.azurewebsites.net/eureka
