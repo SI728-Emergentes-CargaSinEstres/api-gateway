@@ -56,7 +56,11 @@ spring:
             - Path=/chat-management-service/**
           filters:
             - StripPrefix=1
-
+      discovery:
+        locator:
+          enabled: true
+        loadbalancer:
+          enabled: true
 server:
   port: 8080
 
