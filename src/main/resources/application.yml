@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: api-gateway
+
+  ##GATEWAY CONFIGURATIONS
+
+  cloud:
+    gateway:
+      default-filters:
+        - CorsFilter
+      routes:
+        ## service1
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/**
+          filters:
+            - StripPrefix=1
+
+        ## Service2
+        - id: user-service-2
+          uri: lb://user-service-2
+          predicates:
+            - Path=/user-service-2/**
+          filters:
+            - StripPrefix=1
+
+        ## service3
+        - id: business-service
+          uri: lb://business-service
+          predicates:
+            - Path=/business-service/**
+          filters:
+            - StripPrefix=1
+
+        ## Service4
+        - id: business-service-2
+          uri: lb://business-service-2
+          predicates:
+            - Path=/business-service-2/**
+          filters:
+            - StripPrefix=1
+
+        ## Service4
+        - id: company-management-service
+          uri: lb://company-management-service
+          predicates:
+            - Path=/company-management-service/**
+          filters:
+            - StripPrefix=1
+
+        ## Service5
+        - id: chat-management-service
+          uri: lb://chat-management-service
+          predicates:
+            - Path=/chat-management-service/**
+          filters:
+            - StripPrefix=1
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html  # Ruta para la interfaz Swagger en el Gateway
+  api-docs:
+    path: /v3/api-docs      # Ruta para la agregación de documentos OpenAPI
+  group-configs:
+    - group: user-service
+      paths-to-match: /user-service/**
+    - group: business-service
+      paths-to-match: /business-service/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
