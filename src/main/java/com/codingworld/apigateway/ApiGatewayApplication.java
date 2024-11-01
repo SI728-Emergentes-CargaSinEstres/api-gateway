@@ -9,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@EnableDiscoveryClient
 public class ApiGatewayApplication {
 
 	@Bean
@@ -18,7 +17,7 @@ public class ApiGatewayApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("https://cse-fundamentos.web.app", "https://business-service-v4.azurewebsites.net", "http://localhost:4200", "https://localhost:4200")
+						.allowedOrigins("https://cse-frontend-arquitectura.web.app/")
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH") // Permitir los métodos necesarios
 						.allowedHeaders("*"); // Permitir todos los encabezados
 			}
