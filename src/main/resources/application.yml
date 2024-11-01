@@ -6,18 +6,15 @@ spring:
 
   cloud:
     gateway:
-      default-filters:
-        - CorsFilter
-        - PreserveHostHeader=True
       routes:
         ## service1
         - id: modular-monolith
-          uri: http://localhost:8081/
+          uri: https://cse-modular-monolith.azurewebsites.net/
           predicates:
             - Path=/api/v1/**
           filters:
-            - StripPrefix=2
+            - AuthHeaderFilter
 
 
 server:
-  port: 8080
+  port: 8081
