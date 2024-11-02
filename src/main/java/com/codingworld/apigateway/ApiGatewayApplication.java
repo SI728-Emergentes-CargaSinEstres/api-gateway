@@ -17,7 +17,7 @@ public class ApiGatewayApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("https://cse-frontend-arquitectura.web.app/")
+						.allowedOrigins("https://cse-frontend-arquitectura.web.app/", "http://localhost:4200")
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH") // Permitir los métodos necesarios
 						.allowedHeaders("*"); // Permitir todos los encabezados
 			}
